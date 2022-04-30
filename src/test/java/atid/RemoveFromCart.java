@@ -71,6 +71,7 @@ public class RemoveFromCart extends Base {
 			assertFalse(true);
 		}
 		Thread.sleep(1000);
+		
 	}
 
 	@Test
