@@ -22,9 +22,11 @@ public class ProductPage {
 	private By singleMSG = By.xpath("//*[@id=\"main\"]/div/p");
 	private By singleItem = By.xpath("//*[@id=\"main\"]/div/ul/li");
 	private By allItems = By.xpath("//*[@id=\"main\"]/div/p");
-	private By accessories = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[1]/a");
-	private By men = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[2]/a");
-	private By women = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[3]/a");
+	private By accessoriesBTN = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[1]/a");
+	private By menBTN = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[2]/a");
+	private By womenBTN = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[3]/a");
+	private By allCategoryTitle = By.xpath("/html/body/div/div[1]/div/div[2]/main/div/nav[1]");
+	private By categoryTitle = By.xpath("/html/body/div/div[1]/div/div[2]/main/div/header/h1");
 
 	public ProductPage(WebDriver driver) {
 		this.driver = driver;
@@ -101,17 +103,17 @@ public class ProductPage {
 				.release().perform();
 		logger.debug("price filter moved to max");
 	}
-	
+
 	public void movePriceFilterToMid() {
 		WebElement leftSlider = driver.findElement(minPriceSlider);
 		WebElement rightSlider = driver.findElement(maxPriceSlider);
 		WebElement priceSlider1 = driver.findElement(priceSlider);
 
 		Actions SliderAction = new Actions(driver);
-		SliderAction.clickAndHold(leftSlider).moveByOffset(priceSlider1.getSize().getWidth()/2 -10, 0).moveByOffset(0, 0)
-				.release().perform();
-		SliderAction.clickAndHold(rightSlider).moveByOffset(-priceSlider1.getSize().getWidth()/2, 0).moveByOffset(0, 0)
-		.release().perform();
+		SliderAction.clickAndHold(leftSlider).moveByOffset(priceSlider1.getSize().getWidth() / 2 - 10, 0)
+				.moveByOffset(0, 0).release().perform();
+		SliderAction.clickAndHold(rightSlider).moveByOffset(-priceSlider1.getSize().getWidth() / 2, 0)
+				.moveByOffset(0, 0).release().perform();
 		logger.debug("price filter moved to middle");
 	}
 
@@ -119,7 +121,7 @@ public class ProductPage {
 		driver.findElement(filterBTN).click();
 		logger.debug("filter button clicked");
 	}
-	
+
 	public boolean checkSingleMSG() {
 		if (driver.findElement(singleMSG).isDisplayed()) {
 			logger.debug(driver.findElement(singleMSG).getText());
@@ -129,7 +131,7 @@ public class ProductPage {
 			return false;
 		}
 	}
-	
+
 	public boolean checkSingleItem() {
 		if (driver.findElement(singleItem).isDisplayed()) {
 			logger.debug("\n" + driver.findElement(singleItem).getText());
@@ -139,7 +141,7 @@ public class ProductPage {
 			return false;
 		}
 	}
-	
+
 	public boolean checkAllItems() {
 		if (driver.findElement(allItems).isDisplayed()) {
 			logger.debug(driver.findElement(allItems).getText());
@@ -149,19 +151,41 @@ public class ProductPage {
 			return false;
 		}
 	}
-	
+
 	public void clickAccessoriesBTN() {
-		driver.findElement(accessories).click();
+		driver.findElement(accessoriesBTN).click();
 		logger.debug("filter by Accessories clicked");
 	}
-	
+
 	public void clickMenBTN() {
-		driver.findElement(men).click();
+		driver.findElement(menBTN).click();
 		logger.debug("filter by Men clicked");
 	}
-	
+
 	public void clickWomenBTN() {
-		driver.findElement(women).click();
+		driver.findElement(womenBTN).click();
 		logger.debug("filter by Women clicked");
+	}
+
+	public boolean checkCategoryTitle(String title) {
+		if (driver.findElement(categoryTitle).isDisplayed()
+				&& driver.findElement(categoryTitle).getText().equals(title)) {
+			logger.debug(driver.findElement(categoryTitle).getText());
+			return true;
+		} else {
+			logger.debug("filter failed");
+			return false;
+		}
+	}
+	
+	public boolean checkAllTitle() {
+		if (driver.findElement(allCategoryTitle).isDisplayed() &&
+				driver.findElement(allCategoryTitle).getText().equals("Home / Store")) {
+			logger.debug(driver.findElement(allCategoryTitle).getText());
+			return true;
+		} else {
+			logger.debug("filter failed");
+			return false;
+		}
 	}
 }

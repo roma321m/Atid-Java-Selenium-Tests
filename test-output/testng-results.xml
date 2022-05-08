@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18750" started-at="2022-04-30T16:42:58 IDT" finished-at="2022-04-30T16:43:16 IDT">
+  <suite name="Default suite" duration-ms="10259" started-at="2022-05-08T16:23:28 IDT" finished-at="2022-05-08T16:23:39 IDT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18750" started-at="2022-04-30T16:42:58 IDT" finished-at="2022-04-30T16:43:16 IDT">
-      <class name="atid.FilterPrice">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:atid.FilterPrice@77f99a05]" name="setUp" is-config="true" duration-ms="4349" started-at="2022-04-30T16:42:58 IDT" finished-at="2022-04-30T16:43:02 IDT">
+    <test name="Default test" duration-ms="10259" started-at="2022-05-08T16:23:28 IDT" finished-at="2022-05-08T16:23:39 IDT">
+      <class name="atid.Search">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:atid.Search@77f99a05]" name="setUp" is-config="true" duration-ms="6117" started-at="2022-05-08T16:23:28 IDT" finished-at="2022-05-08T16:23:35 IDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="step1()[pri:0, instance:atid.FilterPrice@77f99a05]" name="step1" duration-ms="5297" started-at="2022-04-30T16:43:02 IDT" finished-at="2022-04-30T16:43:07 IDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- step1 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:atid.FilterPrice@77f99a05]" name="tearDown" is-config="true" duration-ms="721" started-at="2022-04-30T16:43:07 IDT" finished-at="2022-04-30T16:43:08 IDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:atid.FilterPrice@77f99a05]" name="setUp" is-config="true" duration-ms="2350" started-at="2022-04-30T16:43:08 IDT" finished-at="2022-04-30T16:43:10 IDT">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="step2()[pri:0, instance:atid.FilterPrice@77f99a05]" name="step2" duration-ms="5288" started-at="2022-04-30T16:43:10 IDT" finished-at="2022-04-30T16:43:16 IDT">
+        <test-method status="PASS" signature="step2()[pri:0, instance:atid.Search@77f99a05]" name="step2" duration-ms="3195" started-at="2022-05-08T16:23:35 IDT" finished-at="2022-05-08T16:23:38 IDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- step2 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:atid.FilterPrice@77f99a05]" name="tearDown" is-config="true" duration-ms="711" started-at="2022-04-30T16:43:16 IDT" finished-at="2022-04-30T16:43:16 IDT">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:atid.Search@77f99a05]" name="tearDown" is-config="true" duration-ms="919" started-at="2022-05-08T16:23:38 IDT" finished-at="2022-05-08T16:23:39 IDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- atid.FilterPrice -->
+      </class> <!-- atid.Search -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

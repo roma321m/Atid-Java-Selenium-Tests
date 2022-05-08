@@ -19,7 +19,7 @@ public class FilterByCategory extends Base {
 		pp.clickMenBTN();
 		Thread.sleep(1000);
 		
-		if (!pp.checkAllItems()) {
+		if (!pp.checkCategoryTitle("Men")) {
 			assertFalse(true);
 		}
 		Thread.sleep(1000);
@@ -38,7 +38,7 @@ public class FilterByCategory extends Base {
 		pp.clickWomenBTN();
 		Thread.sleep(1000);
 		
-		if (!pp.checkAllItems()) {
+		if (!pp.checkCategoryTitle("Women")) {
 			assertFalse(true);
 		}
 		Thread.sleep(1000);
@@ -56,7 +56,7 @@ public class FilterByCategory extends Base {
 		pp.clickAccessoriesBTN();
 		Thread.sleep(1000);
 		
-		if (!pp.checkAllItems()) {
+		if (!pp.checkCategoryTitle("Accessories")) {
 			assertFalse(true);
 		}
 		Thread.sleep(1000);
@@ -72,7 +72,7 @@ public class FilterByCategory extends Base {
 
 		ProductPage pp = new ProductPage(driver);
 		
-		if (!pp.checkAllItems()) {
+		if (!pp.checkAllTitle()) {
 		assertFalse(true);
 	}
 	Thread.sleep(1000);
