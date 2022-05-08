@@ -14,12 +14,17 @@ public class ProductPage {
 
 	private By addToCart = By.xpath("//*[@id=\"product-160\"]/div[2]/form/button");
 	private By addedMSG = By.xpath("//*[@id=\"main\"]/div/div[1]/div");
-	private By count = By.xpath("//*[@id=\"quantity_626501d6725c3\"]");
+	private By count = By.xpath("/html/body/div[1]/div[1]/div/div/main/div/div[2]/div[2]/form/div/input");
 	private By priceSlider = By.xpath("//*[@id=\"woocommerce_price_filter-2\"]/form/div/div[1]");
 	private By minPriceSlider = By.xpath("//*[@id=\"woocommerce_price_filter-2\"]/form/div/div[1]/span[1]");
 	private By maxPriceSlider = By.xpath("//*[@id=\"woocommerce_price_filter-2\"]/form/div/div[1]/span[2]");
 	private By filterBTN = By.xpath("//*[@id=\"woocommerce_price_filter-2\"]/form/div/div[2]/button");
 	private By singleMSG = By.xpath("//*[@id=\"main\"]/div/p");
+	private By singleItem = By.xpath("//*[@id=\"main\"]/div/ul/li");
+	private By allItems = By.xpath("//*[@id=\"main\"]/div/p");
+	private By accessories = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[1]/a");
+	private By men = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[2]/a");
+	private By women = By.xpath("/html/body/div/div[1]/div/div[1]/div/div[3]/ul/li[3]/a");
 
 	public ProductPage(WebDriver driver) {
 		this.driver = driver;
@@ -96,6 +101,19 @@ public class ProductPage {
 				.release().perform();
 		logger.debug("price filter moved to max");
 	}
+	
+	public void movePriceFilterToMid() {
+		WebElement leftSlider = driver.findElement(minPriceSlider);
+		WebElement rightSlider = driver.findElement(maxPriceSlider);
+		WebElement priceSlider1 = driver.findElement(priceSlider);
+
+		Actions SliderAction = new Actions(driver);
+		SliderAction.clickAndHold(leftSlider).moveByOffset(priceSlider1.getSize().getWidth()/2 -10, 0).moveByOffset(0, 0)
+				.release().perform();
+		SliderAction.clickAndHold(rightSlider).moveByOffset(-priceSlider1.getSize().getWidth()/2, 0).moveByOffset(0, 0)
+		.release().perform();
+		logger.debug("price filter moved to middle");
+	}
 
 	public void clickFilterBTN() {
 		driver.findElement(filterBTN).click();
@@ -110,5 +128,40 @@ public class ProductPage {
 			logger.debug("filter failed");
 			return false;
 		}
+	}
+	
+	public boolean checkSingleItem() {
+		if (driver.findElement(singleItem).isDisplayed()) {
+			logger.debug("\n" + driver.findElement(singleItem).getText());
+			return true;
+		} else {
+			logger.debug("filter failed");
+			return false;
+		}
+	}
+	
+	public boolean checkAllItems() {
+		if (driver.findElement(allItems).isDisplayed()) {
+			logger.debug(driver.findElement(allItems).getText());
+			return true;
+		} else {
+			logger.debug("filter failed");
+			return false;
+		}
+	}
+	
+	public void clickAccessoriesBTN() {
+		driver.findElement(accessories).click();
+		logger.debug("filter by Accessories clicked");
+	}
+	
+	public void clickMenBTN() {
+		driver.findElement(men).click();
+		logger.debug("filter by Men clicked");
+	}
+	
+	public void clickWomenBTN() {
+		driver.findElement(women).click();
+		logger.debug("filter by Women clicked");
 	}
 }

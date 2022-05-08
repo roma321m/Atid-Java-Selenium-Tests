@@ -4,8 +4,8 @@ import static org.testng.Assert.assertFalse;
 
 import org.testng.annotations.Test;
 
-public class FilterPrice extends Base {
-	
+public class FilterByCategory extends Base {
+
 	@Test
 	public void step1() throws InterruptedException {
 
@@ -16,13 +16,10 @@ public class FilterPrice extends Base {
 		Thread.sleep(1000);
 
 		ProductPage pp = new ProductPage(driver);
-		pp.movePriceFilterToMax();
-		Thread.sleep(1000);
-
-		pp.clickFilterBTN();
+		pp.clickMenBTN();
 		Thread.sleep(1000);
 		
-		if (!pp.checkSingleMSG()) {
+		if (!pp.checkAllItems()) {
 			assertFalse(true);
 		}
 		Thread.sleep(1000);
@@ -38,13 +35,10 @@ public class FilterPrice extends Base {
 		Thread.sleep(1000);
 
 		ProductPage pp = new ProductPage(driver);
-		pp.movePriceFilterToMin();
-		Thread.sleep(1000);
-
-		pp.clickFilterBTN();
+		pp.clickWomenBTN();
 		Thread.sleep(1000);
 		
-		if (!pp.checkSingleMSG()) {
+		if (!pp.checkAllItems()) {
 			assertFalse(true);
 		}
 		Thread.sleep(1000);
@@ -59,13 +53,10 @@ public class FilterPrice extends Base {
 		Thread.sleep(1000);
 
 		ProductPage pp = new ProductPage(driver);
-		pp.movePriceFilterToMid();
-		Thread.sleep(1000);
-
-		pp.clickFilterBTN();
+		pp.clickAccessoriesBTN();
 		Thread.sleep(1000);
 		
-		if (!pp.checkSingleItem()) {
+		if (!pp.checkAllItems()) {
 			assertFalse(true);
 		}
 		Thread.sleep(1000);
@@ -80,8 +71,6 @@ public class FilterPrice extends Base {
 		Thread.sleep(1000);
 
 		ProductPage pp = new ProductPage(driver);
-		pp.clickFilterBTN();
-		Thread.sleep(1000);
 		
 		if (!pp.checkAllItems()) {
 		assertFalse(true);
